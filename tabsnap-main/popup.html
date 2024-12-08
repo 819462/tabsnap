@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TabSnap</title>
+  <script src="popup.js"></script>
+  <style>
+    /* Basic page reset */
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Container for the popup */
+    #screenshotContainer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      position: relative; /* For positioning the capture button at the top */
+      overflow-y: auto; /* Allows scrolling if there are many screenshots */
+      max-height: 90vh; /* Limit the height */
+    }
+
+    /* Button styling */
+    #capture {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s;
+      position: absolute; /* Position the button at the top */
+      top: 20px; /* Distance from the top of the container */
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10; /* Ensure the button is above screenshots */
+    }
+
+    /* Remove transform on hover */
+    #capture:hover {
+      background-color: #45a049;
+    }
+
+    #capture:active {
+      background-color: #45a049;
+    }
+
+    /* Styling for the screenshot image */
+    #screenshotContainer img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 60px; /* Give space for the button */
+    }
+
+  </style>
+</head>
+<body>
+  <div id="screenshotContainer">
+    <button id="capture">Snap</button>
+    <div id="screenshot"></div>
+  </div>
+</body>
+</html>
+
